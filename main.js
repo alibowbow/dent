@@ -399,7 +399,7 @@ function setMode(toViewerMode) {
         actionControls.style.display = 'none';
         viewpointControls.classList.remove('hidden'); // 뷰어 모드일 때 버튼 표시
         // 뷰어 모드에서는 컨트롤 패널을 항상 보이도록
-        controlsPanel.classList.remove('hidden');
+        controlsPanel.classList.remove('translate-x-full');
         controls.autoRotate = false;
 
         gsapAnimation = gsap.to(particles.geometry.attributes.position.array, {
@@ -421,7 +421,7 @@ function setMode(toViewerMode) {
         viewpointControls.classList.add('hidden'); // 애니메이션 모드일 때 버튼 숨김
         // 애니메이션 모드에서는 컨트롤 패널을 기본적으로 숨김 (모바일에서)
         if (window.innerWidth < 768) {
-            controlsPanel.classList.add('hidden');
+            controlsPanel.classList.add('translate-x-full');
         }
         controls.autoRotate = true;
         // GSAP가 제어하던 파티클의 속도를 초기화하여 lerp 애니메이션이 자연스럽게 이어지도록 함
