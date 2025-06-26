@@ -293,6 +293,15 @@ function onWindowResize() {
     camera.aspect = window.innerWidth / window.innerHeight;
     camera.updateProjectionMatrix();
     renderer.setSize(window.innerWidth, window.innerHeight);
+
+    // 모바일 너비에서 컨트롤 패널을 접고 데스크톱에서는 펼친다
+    if (window.innerWidth < 768) {
+        if (!isViewerMode) {
+            controlsPanel.classList.add('translate-x-full');
+        }
+    } else {
+        controlsPanel.classList.remove('translate-x-full');
+    }
 }
 
 function onMouseMove(event) {
